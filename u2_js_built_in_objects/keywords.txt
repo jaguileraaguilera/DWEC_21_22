@@ -1,0 +1,6 @@
+objects
+properties
+methods -> persona.andar()
+constructor -> a = newArray();
+dot notation -> persona.nombre
+bracket notation -> persona[nombre]

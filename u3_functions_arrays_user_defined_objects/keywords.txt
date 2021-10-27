@@ -1,0 +1,5 @@
+prototype -> 
+inheritance -> herencia
+encasulation
+built-in
+array
