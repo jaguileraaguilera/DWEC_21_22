@@ -1,8 +1,8 @@
 class Lambdasian {
-    constructor(name, age, location) {
-        this.name = name;
-        this.age = age;
-        this.location = location;
+    constructor(objDatos) {
+        this.name = objDatos.name;
+        this.age = objDatos.age;
+        this.location = objDatos.location
     }
 
     speak(){
@@ -12,12 +12,11 @@ class Lambdasian {
 
 
 class Instructor extends Lambdasian {
-    constructor(name, age, location, speciality, 
-                favLanguage, catchPhrase) {
-        super(name, age, location);
-        this.speciality = speciality;
-        this.favLanguage = favLanguage;
-        this.catchPhrase = catchPhrase;
+    constructor(objDatos) {
+        super(objDatos);
+        this.speciality = objDatos.speciality;
+        this.favLanguage = objDatos.favLanguage;
+        this.catchPhrase = objDatos.catchPhrase;
     }
 
     demo(subject) {
@@ -31,12 +30,10 @@ class Instructor extends Lambdasian {
 
 
 class ProjectManager extends Instructor {
-    constructor(name, age, location, speciality,favLanguage, 
-                catchPhrase, gradClassName, favInstructor) {
-        super(name, age, location, speciality, favLanguage,
-                catchPhrase);
-        this.gradClassName = gradClassName;
-        this.favInstructor = favInstructor;
+    constructor(objDatos) {
+        super(objDatos);
+        this.gradClassName = objDatos.gradClassName;
+        this.favInstructor = objDatos.favInstructor;
     }
 
     // standUp (TENGO QUE PREGUNTAR QUE HAY QUE HACER)
@@ -45,3 +42,19 @@ class ProjectManager extends Instructor {
         returns `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
+
+// Pruebas
+let datos = {
+    name : "Juan",
+    age : 20,
+    location : "Granada",
+    speciality : "redux",
+    favLanguage : "JavaScript",
+    catchPhrase : "Don't forget the homies",
+    gradClassName : "CS1",
+    favInstructor: "Sean"
+
+}
+
+let ins = new ProjectManager(datos);
+console.log(ins);

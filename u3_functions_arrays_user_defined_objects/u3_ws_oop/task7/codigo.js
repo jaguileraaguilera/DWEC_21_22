@@ -12,16 +12,16 @@ class Lambdasian {
 
 
 class Student extends Lambdasian {
-    constructor(name, age, location, previousBackground, 
-                className, favSubjects, grade, graduated=false) {
-        super(name, age, location);
-        this.previousBackground = previousBackground;
-        this.className = className;
-        this.favSubjects = favSubjects;
-        ((grade >= 0) && (grade <= 100)) ? 
-            this.grade = grade : this.grade = undefined;
-        this.graduated = graduated;
+    constructor(objDatos) {
+        super(objDatos);
+        this.previousBackground = objDatos.previousBackground;
+        this.className = objDatos.className;
+        this.favSubjects = objDatos.favSubjects;
+        ((objDatos.grade >= 0) && (objDatos.grade <= 100)) ? 
+            this.grade = objDatos.grade : this.grade = undefined;
+        this.graduated = objDatos.graduated;
     }
+   
 
     listSubjects() {
         return "Loving " + this.favSubjects.join(', ') + "!";
@@ -43,12 +43,11 @@ class Student extends Lambdasian {
 
 
 class Instructor extends Lambdasian {
-    constructor(name, age, location, speciality, 
-                favLanguage, catchPhrase) {
-        super(name, age, location);
-        this.speciality = speciality;
-        this.favLanguage = favLanguage;
-        this.catchPhrase = catchPhrase;
+    constructor(objDatos) {
+        super(objDatos);
+        this.speciality = objDatos.speciality;
+        this.favLanguage = objDatos.favLanguage;
+        this.catchPhrase = objDatos.catchPhrase;
     }
 
     demo(subject) {
@@ -72,12 +71,10 @@ class Instructor extends Lambdasian {
 
 
 class ProjectManager extends Instructor {
-    constructor(name, age, location, speciality,favLanguage, 
-                catchPhrase, gradClassName, favInstructor) {
-        super(name, age, location, speciality, favLanguage,
-                catchPhrase);
-        this.gradClassName = gradClassName;
-        this.favInstructor = favInstructor;
+    constructor(objDatos) {
+        super(objDatos);
+        this.gradClassName = objDatos.gradClassName;
+        this.favInstructor = objDatos.favInstructor;
     }
 
     // standUp (TENGO QUE PREGUNTAR QUE HAY QUE HACER)
@@ -88,7 +85,26 @@ class ProjectManager extends Instructor {
 }
 
 //Pruebas
-s = new Student('a','b','c','d','DAW',['html'],50);
-i = new Instructor('pepe',50,'villaconejos','javascript', 'javascript','do homework');
+let datos_instructor = {
+    name : "Juan",
+    age : 20,
+    location : "Granada",
+    speciality : "redux",
+    favLanguage : "JavaScript",
+    catchPhrase : "Don't forget the homies",
+    gradClassName : "CS1",
+    favInstructor: "Sean"
+}
+let datos_estudiante = {
+    name : "Juan",
+    age : 20,
+    location : "Granada",
+    previousBackground : "Bachillerato",
+    className : "2DAW",
+    favSubjects : ['HTML', 'CSS', 'JS'],
+    grade : 50
+}
+s = new Student(datos_estudiante);
+i = new Instructor(datos_instructor);
 for (j=0; j <= 100; j++)
     i.randomGrading(s);

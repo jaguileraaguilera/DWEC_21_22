@@ -1,10 +1,9 @@
 class Lambdasian {
-    constructor(name, age, location) {
-        this.name = name;
-        this.age = age;
-        this.location = location;
+    constructor(objDatos) {
+        this.name = objDatos.name;
+        this.age = objDatos.age;
+        this.location = objDatos.location
     }
-
     speak(){
         return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
@@ -12,12 +11,11 @@ class Lambdasian {
 
 
 class Student extends Lambdasian {
-    constructor(name, age, location, previousBackground, 
-                className, favSubjects) {
-        super(name, age, location);
-        this.previousBackground = previousBackground;
-        this.className = className;
-        this.favSubjects = favSubjects;
+    constructor(objDatos) {
+        super(objDatos);
+        this.previousBackground = objDatos.previousBackground;
+        this.className = objDatos.className;
+        this.favSubjects = objDatos.favSubjects;
     }
 
     listSubjects() {
@@ -32,3 +30,15 @@ class Student extends Lambdasian {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
+
+let datos = {
+    name : "Juan",
+    age : 20,
+    location : "Granada",
+    previousBackground : "Bachillerato",
+    className : "2DAW",
+    favSubjects : ['HTML', 'CSS', 'JS']
+}
+
+let std = new Student(datos);
+console.log(std);

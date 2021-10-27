@@ -1,23 +1,22 @@
 class Lambdasian {
-    constructor(name, age, location) {
-        this.name = name;
-        this.age = age;
-        this.location = location;
+    constructor(objDatos) {
+        this.name = objDatos.name;
+        this.age = objDatos.age;
+        this.location = objDatos.location
     }
 
-    speak(){
+    speak() {
         return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 }
 
 
 class Instructor extends Lambdasian {
-    constructor(name, age, location, speciality, 
-                favLanguage, catchPhrase) {
-        super(name, age, location);
-        this.speciality = speciality;
-        this.favLanguage = favLanguage;
-        this.catchPhrase = catchPhrase;
+    constructor(objDatos) {
+        super(objDatos);
+        this.speciality = objDatos.speciality;
+        this.favLanguage = objDatos.favLanguage;
+        this.catchPhrase = objDatos.catchPhrase;
     }
 
     demo(subject) {
@@ -28,3 +27,16 @@ class Instructor extends Lambdasian {
         return `${student.name} receives a perfect score on ${subject}`;
     }
 }
+
+// Pruebas
+let datos = {
+    name : "Juan",
+    age : 20,
+    location : "Granada",
+    speciality : "redux",
+    favLanguage : "JavaScript",
+    catchPhrase : "Don't forget the homies"
+}
+
+let ins = new Instructor(datos);
+console.log(ins);

@@ -1,12 +1,21 @@
 class Lambdasian {
-    constructor(name, age, location) {
-        this.name = name;
-        this.age = age;
-        this.location = location;
+    constructor(objDatos) {
+        this.name = objDatos.name;
+        this.age = objDatos.age;
+        this.location = objDatos.location
     }
 
-    speak(){
+    speak() {
         return `Hello my name is ${this.name},
                 I am form ${this,location}`;
     }
 }
+
+//Pruebas
+let datos = {
+    name : "Juan",
+    age : 20,
+    location : "Granada"
+}
+
+let lamb = new Lambdasian(datos);
