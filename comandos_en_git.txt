@@ -1,0 +1,35 @@
+// Los siguientes solo se ejecutan después de instalar git
+git config --global user.name "Javier Aguilera Aguilera"
+git config --global user.email "javieraguilerayaguilera@gmail.com"
+
+// Tras abrir la carpeta en el terminal
+git init
+
+// Estado de la rama
+git status
+
+// Añadir archivo
+git add nombre_archivo
+
+// Hacer commit
+git commit -m "Mensaje informacion relevante. Ej: Usando algoritmo recursivo"
+
+// Ver commit realizados en una rama
+git log
+
+// Saltar a una version en la rama
+git checkout codigo_commit
+Ejemplo: git checkout 76fb3217a335ae200cd64a18cc4b524796de48c1
+
+// Si queremos crear una nueva rama a partir de ahí
+git branch nombre_rama codigo_commit
+
+// Si queremos juntar dos ramas de desarrollo
+primero nos situamos en una rama
+git merge otra_rama
+
+// subir contenido a github
+git push -u origin master
+// Importar contenido de github
+git pull
+

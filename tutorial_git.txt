@@ -1,0 +1,286 @@
+Microsoft Windows [Versión 10.0.19043.1288]
+(c) Microsoft Corporation. Todos los derechos reservados.
+
+C:\Users\Javier>git --version
+git version 2.33.1.windows.1
+
+C:\Users\Javier>git config --global user.name "Javier Aguilera Aguilera"
+
+C:\Users\Javier>git config --global user.email "javieraguilerayaguilera@gmail.com"
+
+C:\Users\Javier>mkdir ejerciciosT1
+
+C:\Users\Javier>cd ejerciciosT1
+
+C:\Users\Javier\ejerciciosT1>git init
+Initialized empty Git repository in C:/Users/Javier/ejerciciosT1/.git/
+
+C:\Users\Javier\ejerciciosT1>git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Javier\ejerciciosT1>git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        archivo.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Javier\ejerciciosT1>git add archivo.txt
+
+C:\Users\Javier\ejerciciosT1>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   archivo.txt
+
+
+C:\Users\Javier\ejerciciosT1>git commit -m "Primera version con solo una linea"
+[master (root-commit) 76fb321] Primera version con solo una linea
+ 1 file changed, 1 insertion(+)
+ create mode 100644 archivo.txt
+
+C:\Users\Javier\ejerciciosT1>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\Javier\ejerciciosT1>git log
+commit 76fb3217a335ae200cd64a18cc4b524796de48c1 (HEAD -> master)
+Author: Javier Aguilera Aguilera <javieraguilerayaguilera@gmail.com>
+Date:   Tue Oct 26 10:56:43 2021 +0200
+
+    Primera version con solo una linea
+
+C:\Users\Javier\ejerciciosT1>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   archivo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Javier\ejerciciosT1>git add archivo.txt
+
+C:\Users\Javier\ejerciciosT1>git commit -m "Añado uan linea nueva"
+[master fa1f39b] Añado uan linea nueva
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\Javier\ejerciciosT1>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\Javier\ejerciciosT1>git log
+commit fa1f39b1576760b62cf134d67b42a5665057ac6d (HEAD -> master)
+Author: Javier Aguilera Aguilera <javieraguilerayaguilera@gmail.com>
+Date:   Tue Oct 26 11:03:12 2021 +0200
+
+    Añado uan linea nueva
+
+commit 76fb3217a335ae200cd64a18cc4b524796de48c1
+Author: Javier Aguilera Aguilera <javieraguilerayaguilera@gmail.com>
+Date:   Tue Oct 26 10:56:43 2021 +0200
+
+    Primera version con solo una linea
+
+C:\Users\Javier\ejerciciosT1>git checkout 76fb3217a335ae200cd64a18cc4b524796de48c1
+Note: switching to '76fb3217a335ae200cd64a18cc4b524796de48c1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 76fb321 Primera version con solo una linea
+
+C:\Users\Javier\ejerciciosT1>dir
+ El volumen de la unidad C no tiene etiqueta.
+ El número de serie del volumen es: F882-48D7
+
+ Directorio de C:\Users\Javier\ejerciciosT1
+
+26/10/2021  11:15    <DIR>          .
+26/10/2021  11:15    <DIR>          ..
+26/10/2021  11:15                13 archivo.txt
+               1 archivos             13 bytes
+               2 dirs  150.312.595.456 bytes libres
+
+C:\Users\Javier\ejerciciosT1>git statuts
+git: 'statuts' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+C:\Users\Javier\ejerciciosT1>git status
+HEAD detached at 76fb321
+nothing to commit, working tree clean
+
+C:\Users\Javier\ejerciciosT1>git brach
+git: 'brach' is not a git command. See 'git --help'.
+
+The most similar command is
+        branch
+
+C:\Users\Javier\ejerciciosT1>git branch
+* (HEAD detached at 76fb321)
+  master
+
+C:\Users\Javier\ejerciciosT1>git checkout master
+Previous HEAD position was 76fb321 Primera version con solo una linea
+Switched to branch 'master'
+
+C:\Users\Javier\ejerciciosT1>dir
+ El volumen de la unidad C no tiene etiqueta.
+ El número de serie del volumen es: F882-48D7
+
+ Directorio de C:\Users\Javier\ejerciciosT1
+
+26/10/2021  11:54    <DIR>          .
+26/10/2021  11:54    <DIR>          ..
+26/10/2021  11:54                28 archivo.txt
+               1 archivos             28 bytes
+               2 dirs  150.310.637.568 bytes libres
+
+C:\Users\Javier\ejerciciosT1>type archivo.txt
+primera linea
+segunda linea
+C:\Users\Javier\ejerciciosT1>git log
+commit fa1f39b1576760b62cf134d67b42a5665057ac6d (HEAD -> master)
+Author: Javier Aguilera Aguilera <javieraguilerayaguilera@gmail.com>
+Date:   Tue Oct 26 11:03:12 2021 +0200
+
+    Añado uan linea nueva
+
+commit 76fb3217a335ae200cd64a18cc4b524796de48c1
+Author: Javier Aguilera Aguilera <javieraguilerayaguilera@gmail.com>
+Date:   Tue Oct 26 10:56:43 2021 +0200
+
+    Primera version con solo una linea
+
+C:\Users\Javier\ejerciciosT1>git branch
+* master
+
+C:\Users\Javier\ejerciciosT1>git checkout 76fb3217a335ae200cd64a18cc4b524796de48c1
+Note: switching to '76fb3217a335ae200cd64a18cc4b524796de48c1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 76fb321 Primera version con solo una linea
+
+C:\Users\Javier\ejerciciosT1>git branch
+* (HEAD detached at 76fb321)
+  master
+
+C:\Users\Javier\ejerciciosT1>dir
+ El volumen de la unidad C no tiene etiqueta.
+ El número de serie del volumen es: F882-48D7
+
+ Directorio de C:\Users\Javier\ejerciciosT1
+
+26/10/2021  11:56    <DIR>          .
+26/10/2021  11:56    <DIR>          ..
+26/10/2021  11:56                13 archivo.txt
+               1 archivos             13 bytes
+               2 dirs  150.310.539.264 bytes libres
+
+C:\Users\Javier\ejerciciosT1>git log
+commit 76fb3217a335ae200cd64a18cc4b524796de48c1 (HEAD)
+Author: Javier Aguilera Aguilera <javieraguilerayaguilera@gmail.com>
+Date:   Tue Oct 26 10:56:43 2021 +0200
+
+    Primera version con solo una linea
+
+C:\Users\Javier\ejerciciosT1>git add archivo.txt
+
+C:\Users\Javier\ejerciciosT1>git commit -m "nueva linea en archivo"
+[detached HEAD c112296] nueva linea en archivo
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\Javier\ejerciciosT1>git log
+commit c11229657e37ad393ac0ee52462396158d290cc3 (HEAD)
+Author: Javier Aguilera Aguilera <javieraguilerayaguilera@gmail.com>
+Date:   Tue Oct 26 11:57:58 2021 +0200
+
+    nueva linea en archivo
+
+commit 76fb3217a335ae200cd64a18cc4b524796de48c1
+Author: Javier Aguilera Aguilera <javieraguilerayaguilera@gmail.com>
+Date:   Tue Oct 26 10:56:43 2021 +0200
+
+    Primera version con solo una linea
+
+C:\Users\Javier\ejerciciosT1>git checkout master
+Warning: you are leaving 1 commit behind, not connected to
+any of your branches:
+
+  c112296 nueva linea en archivo
+
+If you want to keep it by creating a new branch, this may be a good time
+to do so with:
+
+ git branch <new-branch-name> c112296
+
+Switched to branch 'master'
+
+C:\Users\Javier\ejerciciosT1>git branch
+* master
+
+C:\Users\Javier\ejerciciosT1>git branch commit1 c112296
+
+C:\Users\Javier\ejerciciosT1>git branch
+  commit1
+* master
+
+C:\Users\Javier\ejerciciosT1>git checkout commit1
+Switched to branch 'commit1'
+
+C:\Users\Javier\ejerciciosT1>git checkout master
+Switched to branch 'master'
+
+C:\Users\Javier\ejerciciosT1>git merge commit1
+Auto-merging archivo.txt
+CONFLICT (content): Merge conflict in archivo.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+C:\Users\Javier\ejerciciosT1>type archivo.txt
+primera linea
+<<<<<<< HEAD
+segunda linea
+=======
+nueva linea en otra rama
+>>>>>>> commit1
+
+C:\Users\Javier\ejerciciosT1>

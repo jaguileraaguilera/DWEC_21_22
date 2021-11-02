@@ -1,6 +1,5 @@
 /**1. Write examples with Arrays to solve the next problems 
  * using only Array methods (like iterators, etc...): */
-
 var numeros = [1,3,234,5,33,678,2];
 
 var palabras = ['Historia', 'Fisica', 'Ornitorrinco'];
@@ -45,7 +44,7 @@ var juntos = palabras.concat(numeros);
 juntos.sort((a,b) => String(a).length - String(b).length);
 console.log(juntos);
 
-/* remove the first word in the array */ // REVISAR
+/* remove the first word in the array */
 var todo = [1,2,3,4,5,6,'ASDF', 'QWERT'];
 var first_word =
 todo.splice(todo.indexOf(todo.find((e) => e === String(e))), 1);
