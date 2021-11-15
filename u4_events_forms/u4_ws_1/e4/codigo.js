@@ -9,9 +9,9 @@ tecla Ctrl y azul si se pulsa Shift. En otro caso no deberá pintarse nada. */
 function inicia() {
     function crearCanvas() {
         document.write('<table border = "1">');
-        for (i=0; i<100; i++) {
+        for (i = 0; i < 100; i++) {
             document.write("<tr>");
-            for (j=0; j < 100; j++) {
+            for (j = 0; j < 100; j++) {
                 document.write("<td></td>");
             }
             document.write("</tr>");
@@ -30,7 +30,7 @@ function inicia() {
 
     crearCanvas();
     let celdas = document.querySelectorAll('td');
-    celdas.forEach((celda)=>celda.onmousemove = colorearCelda);
+    celdas.forEach((celda) => celda.onmousemove = colorearCelda);
 }
 
 

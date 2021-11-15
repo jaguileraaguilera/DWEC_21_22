@@ -3,6 +3,8 @@
  * decidas).
  * ◦Borrar por completo el canvas (con un botón) */
 
+var d_pulsada = false;
+
  function inicia() {
     function crearCanvas() {
         document.write('<table border = "1">');
@@ -24,8 +26,20 @@
             e.target.style.backgroundColor = rojo;
         else if (e.shiftKey)
             e.target.style.backgroundColor = azul;
-        else if (e.ctrlKey)
+        else if (d_pulsada)
             e.target.style.backgroundColor = blanco;
+    }
+
+    function onKeyDown(e) {
+        let keyDown = e.key;
+        if (keyDown == "d")
+            d_pulsada = true;
+    }
+
+    function onKeyUp(e) {
+        let keyUp = e.key;
+        if (keyUp == "d")
+            d_pulsada = false;
     }
 
     function borrarCanvas(e) {
@@ -44,8 +58,9 @@
 
     //Funcionalidad de coloreado
     let celdas = document.querySelectorAll('td');
-    celdas.forEach((celda)=>celda.onmousemove = colorearCelda);
-    
+    celdas.forEach((celda) => celda.onmousemove = colorearCelda);
+    document.onkeyup = onKeyUp;
+    document.onkeydown = onKeyDown;
 }
 
 window.addEventListener("load", inicia);

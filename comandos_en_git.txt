@@ -32,4 +32,10 @@ git merge otra_rama
 git push -u origin master
 // Importar contenido de github
 git pull
+//conectar un con un repositorio de github
+gir remote add origin https://patatin
+git branch -M master
+hacemos un git push
 
+// descargar repositorio de github
+git pull origin master 
