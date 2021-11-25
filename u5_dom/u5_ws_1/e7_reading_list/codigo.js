@@ -1,5 +1,3 @@
-// Falta definir el evento que cuando marquemos en una fila del libro la marque como leída
-
 class Book {
     constructor(title, genre, author) {
         this.title = title;
@@ -49,6 +47,7 @@ function main() {
     let boton_agregar = document.getElementById("agregar_libro");
     boton_agregar.addEventListener("click", agregarLibro);
     mostrarLista(lista_libros);
+    document.getElementById("tabla_listado").addEventListener("click", marcarLeido);
 }
 
 function agregarLibro() {
@@ -64,7 +63,8 @@ function agregarLibro() {
 }
 
 function marcarLeido() {
-
+    lista_libros.finishCurrentBook();
+    mostrarLista(lista_libros);
 }
 
 function mostrarLista(lista) {
@@ -80,10 +80,12 @@ function mostrarLista(lista) {
             leido = "Read on " + libro.readDate.toLocaleDateString('en-EN', opciones);
         }
 
-        let libro_colocar = `<tr><td>${libro.title}</td><td>${libro.author}</td><td>${libro.genre}</td><td>${leido}</td></tr>`;
+        let libro_colocar = `<tr id="libro_colocado"><td>${libro.title}</td><td>${libro.author}</td><td>${libro.genre}</td><td>${leido}</td></tr>`;
         cuerpo_tabla.innerHTML += libro_colocar;
     });
 
     let contador_leidos = document.getElementById("tabla_listado").getElementsByTagName("tfoot")[0];
-    contador_leidos.innerHTML = `<tr><td colspan="4">Books Read: ${lista.numberBooksRead()} of ${lista.totalBooks()}</td></tr>`;
+    (lista_libros.totalBooks() > 0) ?
+        contador_leidos.innerHTML = `<tr><td colspan="4">Books Read: ${lista.numberBooksRead()} of ${lista.totalBooks()}</td></tr>` 
+        : contador_leidos.innerHTML = `<tr><td colspan="4">Books Read: ${lista.totalBooks()}</td></tr>`;
 }

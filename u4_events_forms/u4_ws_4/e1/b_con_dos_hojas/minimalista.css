@@ -1,0 +1,23 @@
+a {
+    color: #5757f3;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+footer {
+    border: none;
+    background-color: white;
+    padding:0rem;
+}
+
+body {
+    border-left: none;
+    padding-left: none;
+    font-family: serif;
+    background-color: white;
+}
+
+nav {
+    background-color: white;
+    border: none;
+}
