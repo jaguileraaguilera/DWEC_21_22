@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table, fieldset {
+    border:1px solid black;
+}
+
+fieldset {
+    width: min-content;
+}
+
+
+label, input {
+    display: block;
+    margin : 0.3em;
+    padding: 0.3em;
+}

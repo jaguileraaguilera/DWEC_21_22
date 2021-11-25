@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>The Reading List</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link href="estilos.css" type="text/css" rel="stylesheet">
+        <script src="codigo.js"></script>
+    </head>
+    <body>
+        <h1>The Reading List</h1>
+        <aside>
+            <form>
+                <fieldset>
+                    <legend><h2>Book</h2></legend>
+                    <label for="titulo">Title</label>
+                    <input type="text" id="titulo">
+                    <label for="autor">Author</label>
+                    <input type="text" id="autor">
+                    <label for="genero">Genre</label>
+                    <input type="text" id="genero">
+                    <input id="agregar_libro" type="button" value="Add book"> <!--Con el type="button" evitamos la recarga de la página-->
+                </fieldset>
+            </form>
+        </aside>
+        <main>
+            <h2>My Reading List</h2>
+            <table id="tabla_listado">
+                <!-- <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Reading status</th>
+                    </tr>
+                </thead> -->
+                <tbody>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Books Read: </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+    </body>
+    
+</html>
