@@ -107,19 +107,19 @@ function ejercicio3(array) {
         return array[0] * ejercicio3(array.slice(1));
 }
 
+/*******************************************************************************/
+// EJERCICIO 4
 
 function guardarLocalStorage(tabla) {
     localStorage.removeItem("tabla");
     localStorage.setItem("tabla", tabla.outerHTML);
 }
 
-
 function borrarTexto(e) {
     e.target.textContent = "";
     let tabla = e.target.parentNode.parentNode;
     guardarLocalStorage(tabla); // al modificar la tabla la vuelvo a guardar
 }
-
 
 function peticionTexto(columna) {
     var xhttp = new XMLHttpRequest();
@@ -130,9 +130,6 @@ function peticionTexto(columna) {
     xhttp.open("GET", "textoEjercicio4.txt", true);
     xhttp.send();
 }
-
-/*******************************************************************************/
-// EJERCICIO 4
 
 function ejercicio4(n_filas, n_columnas, color, objeto) {
     let tabla = document.createElement('table');
