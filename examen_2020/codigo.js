@@ -133,7 +133,7 @@ function peticionTexto(columna) {
 
 function ejercicio4(n_filas, n_columnas, color, objeto) {
     let tabla = document.createElement('table');
-    tabla.setAttribute("id","mi_tabla" );
+    tabla.setAttribute("id","mi_tabla");
 
     for (let i = 0; i < n_filas; i++) {
         let fila = document.createElement('tr');
