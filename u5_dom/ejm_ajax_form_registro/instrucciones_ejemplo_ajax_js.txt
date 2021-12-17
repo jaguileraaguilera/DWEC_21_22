@@ -1,0 +1,10 @@
+formulario de registro,
+al tener 4 caracteres hacer una petición ajax
+que devuelva un json
+{
+	usuarioOcupado: true,
+	alternativas: [] //4 alternativas, jose con 4 modificaciones
+}
+
+el json se va a realizar en un php, lo manda con echo como una cadena de caracteres y con json.parsestring (o como 
+sea, buscarlo) lo convierte a json y entonces lo podremos procesar con nuestro javascript.

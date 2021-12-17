@@ -1,14 +1,12 @@
 /* No se porqué no funciona cuando en la página no hay ninguna cookie anterior.
 Si hay al menos una, las tres funcionan perfectamente */
 
-// a) crearCookie(identificador, valor, fechaExpiracion)
-
-function crearCookie(identificador, valor, edad_max){
+ // a) crearCookie(identificador, valor, fechaExpiracion)
+ function crearCookie(identificador, valor, edad_max) {
     document.cookie = identificador + "=" + valor + "; max-age=" + edad_max;
 }
 
 // b) leerCookie(identificador)
-
 function leerCookie(identificador) {
     let nameEQ = identificador + "="; 
     let ca = document.cookie.split(';');
@@ -25,9 +23,12 @@ function leerCookie(identificador) {
 }
 
 // c) borrarCookie()
-
 function borrarCookie(identificador) {
     crearCookie(identificador, '', "0");
 }
+    
+function main() {
+    crearCookie("mi_cookie", "hola", "500000");
+}
 
-setCookie("mi_cookie", "hola", "5000");
+window.addEventListener("load", main);

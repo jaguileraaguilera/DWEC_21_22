@@ -12,7 +12,7 @@ class Barra {
         
         if (this.y <= 0 || (this.y + this.largo) > alto_contenedor) {
             this.velocidad *= -1;
-            this.y = (this.y - this.largo <= 0) ? this.largo /10 : alto_contenedor - this.largo;
+            this.y = (this.y - this.largo <= 0) ? this.largo / 10 : alto_contenedor - this.largo;
         }
     }
 
@@ -45,7 +45,7 @@ class Bola {
         }
     }
 
-    colisiona(otra_bola){
+    colisiona(otra_bola) {
         this.posAnteriorX = this.x;
         this.posAnteriorY = this.y;
 
@@ -67,10 +67,11 @@ class Bola {
         this.posAnteriorY = this.y;
 
         let dx = this.x - barra.x;
-        let dy = this.y - barra.y;
-        let distancia = Math.sqrt(dx * dx + dy * dy);
+        let distancias_y = [ this.y - barra.y, this.y - barra.y + barra.largo]
+        let d1 = 
+        // Estudio de la distancia buscar como hacerlo
 
-        if (distancia < this.r + barra.ancho) {
+        if (asdfdsa) {
             this.vx *= -1;
             this.vy *= -1;
 
@@ -78,6 +79,7 @@ class Bola {
             this.y = this.posAnteriorY;
         }
     }
+
     colisiona_barra_drch(barra) {
         this.posAnteriorX = this.x;
         this.posAnteriorY = this.y;
