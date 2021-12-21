@@ -6,8 +6,35 @@
         <title>Page Title</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <script src="codigo.js"></script>
+        <style>
+            input {
+                display:block;
+                margin: 0.3rem;
+            }
+
+            fieldset {
+                width: min-content;
+            }
+        </style>
     </head>
     <body>
-        
+        <form id="mi_formulario">
+            <fieldset>
+                <legend>Formulario de registro</legend>
+                <label for="nombre">Nombre</label>
+                <input type="text", name="nombre", id="nombre", required>
+                <label for="apellidos">Apellidos</label>
+                <input type="text", name="apellidos", id="apellidos", required>
+                <label for="dni">DNI</label>
+                <input type="text", name="dni", id="dni", required>
+                <label for="telefono">Teléfono</label>
+                <input type="text", name="telefono", id="telefono", required>
+                <label for="email">Email</label>
+                <input type="text", name="email", id="email", required>
+                <label for="nom_usu">Nombre usuario</label>
+                <input type="text", name="nom_usu", id="nom_usu", minlength="8", required>
+                <input type="submit" value="Enviar">
+            </fieldset>
+        </form>
     </body>
 </html>

@@ -1,6 +1,6 @@
 body, fieldset {
     display: flex;
-    flex-flow: column;
+    /* flex-flow: column; */
     align-items: center;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;

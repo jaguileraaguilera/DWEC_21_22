@@ -1,0 +1,96 @@
+#retroceder, #mas_resultados {
+    display: none;
+}
+
+h1 {
+    margin: 0.5rem;
+}
+
+body, fieldset {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #2b1f21;
+    background-color: #e8ebe8;
+}
+
+header, aside {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#listado {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#detalle {
+    align-items: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#detalle img {
+    width: 50vmin;
+    height: 80vh;
+}
+
+#detalle p {
+    width: 65vmin;
+}
+
+.pelicula {
+    width: 35vmin;
+    height: 60vh;
+    text-align: center;
+}
+
+.pelicula img {
+    width: 70%;
+    height: 70%;
+}
+
+.pelicula p {
+    max-width: 35vmin;
+    font-size: 3vh;
+    color: #2b1f21;
+    margin: 0.3rem;
+    margin-top: 1rem;
+}
+
+fieldset, h2 {
+    text-align: center
+}
+
+fieldset, legend, label, input, .pelicula {
+    padding: 0.3rem;
+}
+
+fieldset {
+    flex-flow: row;
+    border:none;
+    margin: 0.8rem;
+    width: min-content;
+}
+
+label, input, button {
+    display: block;
+    margin : 0.1rem;
+}
+
+input {
+    background-color: #DFE0DF;
+}
+
+input[type="submit"], button {
+    background-color: #2b1f21;
+    color: #e8ebe8;
+    margin : 0.5rem;
+    margin-left: 0.1rem;
+}
