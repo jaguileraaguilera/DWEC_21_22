@@ -1,7 +1,8 @@
 /*******************************************************************************/
 // EJERCICIO 1 REVISADO
-function compararPorAnio(vino1, vino2) {
-    return vino1.anio_cosecha - vino2.anio_cosecha;
+
+function compararPorAnio(vino1, vino2) { // Código más limpio
+    return vino1.anio_cosecha - vino2.anio_cosecha; // ordena por edad de mayor a menor
 }
 
 
@@ -15,7 +16,7 @@ class Vino {
 }
 
 
-class Bodega {
+class Bodega { // devuelveListadoVinos y vinosPorTipo con código más limpio
     constructor(nombre) {
         this.nombre = nombre;
         this.grupo = [];
@@ -26,12 +27,10 @@ class Bodega {
     }
 
     devuelveListadoVinos(ordenado=false) {
-        let lista = {};
-
-        lista['Número de resultados'] = this.grupo.length;
-        (ordenado) ? lista['Listado'] = this.grupo.sort(compararPorAnio) : lista['Listado'] = this.grupo; 
-        
-        return lista
+        if (ordenado)
+            return {'Número de resultados' :  this.grupo.length, 'Listado' : this.grupo.sort(compararPorAnio)};
+        else
+            return {'Número de resultados' :  this.grupo.length, 'Listado' : this.grupo};
     }
 
     vinosPorTipo(tipo) {
@@ -46,7 +45,7 @@ class Bodega {
 }
 
 
-function ejercicio1(listado) {
+function ejercicio1(listado) { // Código más limpio
     let div_ppal = document.createElement("div");
 
     for (let vino of listado['Listado']) {
@@ -67,60 +66,69 @@ function ejercicio1(listado) {
 }
 
 /*******************************************************************************/
-// EJERCICIO 2
+// EJERCICIO 2 REVISADO
 
 function asociaEventos(e) {
-    let color = e.target.style.color;
-    if (color == "#ff0000") {
-        e.target.style.color = "black";
-    }
-    else {
-        e.target.style.color = "red";
-    }
+    (e.target.style.color== "red") ? e.target.style.color = "black" : e.target.style.color = "red";
 }
+
 
 function guardarLocalStorage(array) {
     localStorage.removeItem("array");
     localStorage.setItem("array", JSON.stringify(array));
 }
 
-function ejercicio2(array=null, nodo=null) {
 
-    if ((array!=null) && (nodo=null)) {
-        guardarLocalStorage(array);
-        var tabla = document.createElement("table");
-        for (fila of array) {
-            var fila = document.createElement("tr");
-            for (columna of fila) {
-                var celda = document.createElement("td");
+function ejercicio2(array=null, nodo=null) {
+    if ((array!=null) && (nodo!=null)) {
+        if (JSON.parse(localStorage.getItem("array")) != array) 
+            guardarLocalStorage(array);
+        
+        let tabla = document.createElement("table");
+        for (let fila of array) {
+            let row = document.createElement("tr");
+            for (let columna of fila) {
+                let celda = document.createElement("td");
                 celda.addEventListener("mouseover", asociaEventos);
                 celda.addEventListener("mouseout", asociaEventos);
                 celda.innerText = columna;
-                fila.appendChild(celda);
+                row.appendChild(celda);
             }
-            tabla.appendChild(fila);
+            tabla.appendChild(row);
         }
 
         nodo.appendChild(tabla);
     }
 }
 
-
 /*******************************************************************************/
-// EJERCICIO 3
-// REVISARLO
+// EJERCICIO 3 REVISADO
 
 var svgNS = "http://www.w3.org/2000/svg";
 
-function animarRect() {
-    let rect = document.getElementById("mi_rect");
-    //terminarlo, usando setinterval aumentamos el ancho y el largo, tanto del rectangulo como del contenedor
+
+function animarRect() { // Sin resolver en el examen
+    var i = 0;
+    let id_intervalo = setInterval((rect=document.getElementById("mi_rect")) => {
+        let panel = rect.parentNode;
+        let ancho = parseInt(rect.getAttribute("width"));
+        let alto = parseInt(rect.getAttribute("height"));
+
+        panel.setAttribute("width", ancho + 20);
+        panel.setAttribute("height", alto + 20);
+        rect.setAttribute("width", ancho + 20);
+        rect.setAttribute("height", alto + 20);
+        i++;
+        if (i == 5) // Aseguro 5 ejecuciones del intervalo 
+            clearInterval(id_intervalo);
+    }, 1000);
 }
 
-function ejercicio3(id_contenedor, alto, ancho) { // Esta funciona bien
+
+function ejercicio3(id_contenedor, alto, ancho) {
     let contenedor = document.getElementById(id_contenedor);
+    let panel = document.createElementNS(svgNS, "svg"); // No funcionaba porque usaba createElement() en lugar de createElementNS()
     let rectangulo = document.createElementNS(svgNS, "rect");
-    let panel = document.createElementNS(svgNS, "svg"); // NO FUNCIONABA PORQUE NO LE PASABA EL NAMESPACE
     let boton = document.getElementById("animar");
 
     boton.addEventListener("click", animarRect);
@@ -140,10 +148,11 @@ function ejercicio3(id_contenedor, alto, ancho) { // Esta funciona bien
 }
 
 /*******************************************************************************/
-// EJERCICIO 4
+// EJERCICIO 4 ESTABA PERFECTO
 
 google.charts.load('current', {'packages':['corechart']});
 // google.charts.setOnLoadCallback(ejercicio4);  // DESCOMENTAR VER FUNCIONAMIENTO
+
 
 function ejercicio4() {
     var data = google.visualization.arrayToDataTable([
@@ -169,8 +178,9 @@ function ejercicio4() {
 // PRUEBAS
 
 function main() {
-    // document.body.appendChild(div_listado); //Probar 1f)
-    ejercicio3("e3", 100, 100);
+    // document.body.appendChild(div_listado)
+    // ejercicio3("e3", 100, 100);
+    // ejercicio2([[1,2,3], [1,2,3]], document.body)
 }
 
 // v1 = new Vino("rioja", "2010", "tinto", "crianza");
@@ -182,6 +192,5 @@ function main() {
 // listado = b.devuelveListadoVinos(true);
 // blancos = b.vinosPorTipo("blanco");
 // div_listado = ejercicio1(listado);
-// document.body.appendChild(div_listado)
 
 window.addEventListener("load", main);
