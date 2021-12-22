@@ -1,10 +1,9 @@
 var apikey = "8aaac9f";
 var pagina;
 
-
 function realizarBusqueda(e) {
     e.preventDefault(); // Desactivar refresco de la página
-    pagina = 0;
+    pagina = 1;
     peticionDatos();
 }
 
@@ -19,7 +18,6 @@ function volverListado() {
     let listado = document.getElementById("listado");
     let cuadro_busqueda = document.getElementsByTagName('aside')[0];
     let detalle = document.getElementById("detalle");
-    let mas_resultados = document.getElementById("mas_resultados");
     let btn_retroceder = document.getElementById("retroceder");
 
     if (detalle.style.display != "none") {
@@ -27,16 +25,11 @@ function volverListado() {
         btn_retroceder.style.display = "none";
         listado.style.display = "flex";
         cuadro_busqueda.style.display = "block";
-        mas_resultados.style.display = "block";
     }
 }
 
 
-function maquetarListado(datos, contenedor) { // datos = {Search: Array(10), totalResults: '4004', Response: 'True'}
-    let mas_resultados = document.getElementById("mas_resultados");
-    if (mas_resultados.style.display = "none")
-        mas_resultados.style.display = "block";
-
+function maquetarListado(datos, contenedor) {
     if ((pagina == 1) && (contenedor.innerHTML != ''))
         contenedor.innerHTML = '';
 
@@ -71,7 +64,6 @@ function maquetarPelicula(peli, contenedor) {
 
     if (listado.style.display != "none") {
         listado.style.display = "none";
-        mas_resultados.style.display = "none";
         cuadro_busqueda.style.display = "none";
         contenedor.style.display = "flex";
         btn_retroceder.style.display = "block";
@@ -108,7 +100,7 @@ function peticionDetalles(id_pelicula) {
     let peticion = `http://www.omdbapi.com/?apikey=${apikey}&i=${id_pelicula}`;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState == 4 && this.status == 200){
         let datos = JSON.parse(this.responseText);
         let contenedor = document.getElementById("detalle");
         maquetarPelicula(datos, contenedor);
@@ -120,15 +112,19 @@ function peticionDetalles(id_pelicula) {
 
 
 function peticionDatos() {
-    pagina++;
+    
+    let preload = document.getElementById("preload");
+    preload.style.display = "block";
     let txt_busqueda = document.getElementById("entrada").value.replaceAll(" ", "+");
     let peticion = `http://www.omdbapi.com/?apikey=${apikey}&s=${txt_busqueda}&page=${pagina}`;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-        let datos = JSON.parse(this.responseText);
-        let contenedor = document.getElementById("listado");
-        maquetarListado(datos, contenedor);
+        if ((this.readyState == 4 && this.status == 200)){
+            pagina++;
+            let datos = JSON.parse(this.responseText);
+            let contenedor = document.getElementById("listado");
+            maquetarListado(datos, contenedor);
+            preload.style.display = "none";
         }
     };
     xhttp.open("GET", peticion, true);
@@ -139,11 +135,16 @@ function peticionDatos() {
 function main() {
     let btn_busqueda = document.getElementById("buscar");
     let btn_retroceder = document.getElementById("retroceder");
-    let mas_resultados = document.getElementById("mas_resultados");
     
     btn_busqueda.addEventListener("click", realizarBusqueda);
-    mas_resultados.addEventListener("click", peticionDatos);
     btn_retroceder.addEventListener("click", volverListado);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY + window.innerHeight >= document.body.offsetHeight - 0.5*window.innerHeight) {
+            if (document.getElementById("listado").style.display != "none")
+                peticionDatos();
+        }
+    });
 }
 
 window.addEventListener("load", main);

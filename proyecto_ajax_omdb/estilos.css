@@ -1,7 +1,11 @@
-#retroceder, #mas_resultados {
+#retroceder, #mas_resultados, #preload {
     display: none;
 }
 
+#preload {
+    width: 1.5rem;
+    height: 1.5rem;
+}
 h1 {
     margin: 0.5rem;
 }
