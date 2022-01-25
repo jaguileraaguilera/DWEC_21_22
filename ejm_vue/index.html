@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="codigo.js"></script>
+    </head>
+    <body>
+        <div id="gestionar">
+            <button-counter titulo="componente1" color="red"></button-counter>
+            <button-counter titulo="componente2"></button-counter>  
+            <button-counter v-bind:titulo="dato"></button-counter>
+        </div>
+    </body>
+</html>
